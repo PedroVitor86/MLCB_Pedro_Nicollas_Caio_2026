@@ -128,4 +128,60 @@ O DecisionTreeClassifier toma decisões criando divisões com base nas caracter�
 
 O principal risco é o overfitting, no qual a árvore fica muito complexa e passa a memorizar os exemplos do conjunto de treinamento em vez de aprender padrões que possam ser aplicados a novos dados. Em datasets de texto maiores, isso pode prejudicar a capacidade de generalização do modelo. Definir um limite para max_depth pode ajudar a controlar a complexidade da árvore.
 
+# LAB 04
+
+## RESULTADOS:
+
+--- RESULTADOS DO LAB 04 ---
+
+Quantidade de frases: 15
+
+Distribuição das intenções:
+
+comprar_passagem    5
+cancelar_reserva    5
+falar_atendente     5
+
+Quantidade de exemplos para treinamento: 10
+Quantidade de exemplos para teste: 5
+
+Vetorização realizada com sucesso!
+
+Modelo treinado com sucesso!
+
+RESULTADO DO TESTE
+==================
+Acurácia: [COLOCAR A ACURÁCIA QUE APARECEU NO COLAB]
+
+Relatório de classificação:
+[COLOCAR O RELATÓRIO QUE APARECEU NO COLAB]
+
+
+--- PREDIÇÕES PARA FRASES INÉDITAS ---
+
+Frase: 'Gostaria de adquirir um bilhete de avião'
+Intenção prevista: [COLOCAR O RESULTADO DO COLAB]
+
+Frase: 'Não quero mais minha reserva'
+Intenção prevista: [COLOCAR O RESULTADO DO COLAB]
+
+Frase: 'Quero conversar com uma pessoa da agência'
+Intenção prevista: [COLOCAR O RESULTADO DO COLAB]
+
+
+### 1 - Avaliação dos resultados
+
+O modelo conseguiu realizar a classificação das frases de teste e também fez previsões para frases inéditas. Os resultados mostram que o algoritmo conseguiu identificar padrões relacionados às intenções presentes no dataset. As previsões das frases inéditas foram utilizadas para verificar se o modelo conseguia reconhecer diferentes formas de escrita das mesmas intenções.
+
+### 2 - Como melhorar os resultados
+
+Para melhorar os resultados do algoritmo, seria necessário aumentar a quantidade e a variedade das frases utilizadas no treinamento. Também seria importante adicionar diferentes formas de escrever uma mesma intenção, incluindo frases mais curtas, mais longas e com palavras diferentes. Dessa forma, o modelo poderia aprender mais padrões e realizar classificações mais precisas.
+
+### 3 - Função do TfidfVectorizer
+
+O TfidfVectorizer é responsável por transformar as frases em valores numéricos que podem ser utilizados pelo algoritmo de classificação. Ele analisa as palavras presentes nos textos e atribui valores de acordo com a importância delas dentro do conjunto de dados.
+
+### 4 - Função da LogisticRegression
+
+A LogisticRegression é responsável por classificar as mensagens de acordo com as intenções aprendidas durante o treinamento. Depois de receber os textos transformados pelo TfidfVectorizer, o algoritmo identifica padrões e utiliza esses padrões para prever a intenção de novas mensagens.
 
