@@ -2,7 +2,15 @@
 Mensagem: 'Preciso urgente da segunda via da fatura'
 Intenção Predita: [segunda_via]
 Vocabulário Filtrado (sem stopwords): ['2a', '2a via', 'aberto', 'acordo', 'acordo pagar', 'alterar', 'alterar endereço', 'app', 'atrasada', 'atualizo', 'atualizo dados', 'boleto', 'cadastramento', 'dados', 'dados residenciais', 'débito', 'débito aberto', 'dívida', 'emitir', 'emitir segunda', 'endereço', 'endereço cadastramento', 'fatura', 'fatura atrasada', 'fazer', 'fazer um', 'gostaria', 'gostaria alterar', 'negociar', 'negociar pagamento', 'no', 'no app', 'onde', 'onde atualizo', 'pagamento', 'pagamento dívida', 'pagar', 'pagar débito', 'posso', 'posso emitir', 'residenciais', 'residenciais no', 'segunda', 'segunda via', 'um', 'um acordo', 'via', 'via boleto', 'via fatura']
-
+#========== PRODUÇÃO DO RELATÓRIO:==============
+# 1 - Qual o impacto da remoção de stopwords no tamanho do vocabulário do modelo?
+#R:Ela diminui a quantidade de palavras que o modelo iria verificar, logo, ficaria mais leve e focado
+# 2 - O que significa a configuração ngram_range=(1, 2) no TfidfVectorizer?
+#R: Ele ira olhar para as palavras sozinhas, e tambem para palavras em sequencia, ajudando a entender com expressões compostas
+# 3 - Como a remoção de palavras genéricas ajuda a evitar classificações incorretas?
+#R:Evita que palavras repetitivas e comuns no vocabulario confundam o robo, fazendo com que ele de atenção ao que importa
+# Todos os resultados devem ser inseridos no arquivo resultados_aula03.md
+#========== FIM ==============
 
 
 
