@@ -1,0 +1,125 @@
+# Resultados Aula 06
+
+---
+
+## Código Demo - 4 Testes
+
+**Teste 1:**
+Entrada: "Procuro apartamento para comprar com financiamento na zona sul"
+Intenção: comprar_imovel
+Confiança: 46.2%
+Status: UNCERTAIN (Fallback Acionado)
+
+**Teste 2:**
+Entrada: "Quero alugar uma casa que aceite animais perto da faculdade"
+Intenção: alugar_imovel
+Confiança: 44.7%
+Status: UNCERTAIN (Fallback Acionado)
+
+**Teste 3:**
+Entrada: "O banheiro está com vazamento e precisa de reparo urgente"
+Intenção: suporte_manutencao
+Confiança: 45.8%
+Status: UNCERTAIN (Fallback Acionado)
+
+**Teste 4:**
+Entrada: "Qual a previsão do tempo para amanhã em São Paulo?"
+Intenção: comprar_imovel
+Confiança: 25.5%
+Status: UNCERTAIN (Fallback Acionado)
+
+---
+
+## LAB 01 - Decision Tree
+
+Troquei o LogisticRegression pelo DecisionTreeClassifier
+
+**Teste 1:**
+Entrada: "Quero ver apartamentos à venda na zona sul."
+Intenção: comprar_imovel
+Confiança: 100.0%
+Status: IDENTIFICADO
+
+**Teste 2:**
+Entrada: "Preciso de suporte técnico para consertar vazamento."
+Intenção: suporte_manutencao
+Confiança: 100.0%
+Status: IDENTIFICADO
+
+**Teste 3:**
+Entrada: "Como faço para alugar um galpão comercial?"
+Intenção: alugar_imovel
+Confiança: 100.0%
+Status: IDENTIFICADO
+
+**Teste 4:**
+Entrada: "Vocês vendem terreno na Lua ou em Marte?"
+Intenção: suporte_manutencao
+Confiança: 100.0%
+Status: IDENTIFICADO
+
+A arvore de decisão deu 100% em tudo, até na frase que não faz sentido
+
+---
+
+## LAB 02 - Limiar 65%
+
+Mudei o LIMIAR_CONFIANCA de 0.50 pra 0.65 e atualizei a mensagem de status
+
+**Teste 1:**
+Entrada: "Procuro imóvel residencial para comprar com financiamento"
+Intenção: comprar_imovel
+Confiança: 44.3%
+Status: UNCERTAIN - Confiança abaixo do limiar mínimo de 65%
+
+**Teste 2:**
+Entrada: "Quero alugar um galpão comercial para minha empresa"
+Intenção: alugar_imovel
+Confiança: 45.2%
+Status: UNCERTAIN - Confiança abaixo do limiar mínimo de 65%
+
+**Teste 3:**
+Entrada: "Preciso da segunda via do boleto do aluguel"
+Intenção: 2via_boleto_contrato
+Confiança: 44.9%
+Status: UNCERTAIN - Confiança abaixo do limiar mínimo de 65%
+
+**Teste 4:**
+Entrada: "Vocês vendem terreno na Lua ou em Marte?"
+Intenção: comprar_imovel
+Confiança: 25.5%
+Status: UNCERTAIN - Confiança abaixo do limiar mínimo de 65%
+
+Com o limiar mais alto mais frases caem no fallback
+
+---
+
+## LAB 03 - Nova classe cancelar_contrato
+
+Adicionei 5 frases de cancelar_contrato no dataset e a resposta no dicionario
+
+**Teste 1:**
+Entrada: "Gostaria de solicitar o cancelamento do meu contrato"
+Intenção: cancelar_contrato
+Confiança: 37.4%
+Status: UNCERTAIN (Fallback Acionado)
+
+**Teste 2:**
+Entrada: "Quero rescindir o contrato e devolver as chaves"
+Intenção: cancelar_contrato
+Confiança: 40.0%
+Status: UNCERTAIN (Fallback Acionado)
+
+**Teste 3:**
+Entrada: "Onde pego o boleto atualizado com o valor do condomínio?"
+Intenção: 2via_boleto_contrato
+Confiança: 40.4%
+Status: UNCERTAIN (Fallback Acionado)
+
+**Teste 4:**
+Entrada: "Gostaria de ver casas à venda no centro da cidade"
+Intenção: comprar_imovel
+Confiança: 37.5%
+Status: UNCERTAIN (Fallback Acionado)
+
+O modelo identificou certo a classe nova nos testes 1 e 2 e as classes antigas continuaram funcionando nos testes 3 e 4
